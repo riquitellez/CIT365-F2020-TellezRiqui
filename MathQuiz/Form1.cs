@@ -15,6 +15,8 @@ namespace MathQuiz
         Random randomizer = new Random();
         int addend1;
         int addend2;
+        int minuend;
+        int subtrahend;
         int timeLeft;
         public Form1()
         {
@@ -43,6 +45,13 @@ namespace MathQuiz
             // This step makes sure its value is zero before
             // adding any values to it.
             sum.Value = 0;
+
+            // Fill in the subtraction problem.
+            minuend = randomizer.Next(1, 101);
+            subtrahend = randomizer.Next(1, minuend);
+            minusLeftLabel.Text = minuend.ToString();
+            minusRightLabel.Text = subtrahend.ToString();
+            difference.Value = 0;
 
             // Start the timer.
             timeLeft = 30;
@@ -90,13 +99,15 @@ namespace MathQuiz
                 timeLabel.Text = "Time's up!";
                 MessageBox.Show("You didn't finish in time.", "Sorry!");
                 sum.Value = addend1 + addend2;
+                difference.Value = minuend - subtrahend;
                 startButton.Enabled = true;
             }
         }
 
         private bool CheckTheAnswer()
         {
-            if (addend1 + addend2 == sum.Value)
+            if ((addend1 + addend2 == sum.Value)
+                    && (minuend - subtrahend == difference.Value))
                 return true;
             else
                 return false;
