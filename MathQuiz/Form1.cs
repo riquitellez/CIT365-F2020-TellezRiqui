@@ -17,6 +17,10 @@ namespace MathQuiz
         int addend2;
         int minuend;
         int subtrahend;
+        int multiplicand;
+        int multiplier;
+        int dividend;
+        int divisor;
         int timeLeft;
         public Form1()
         {
@@ -52,6 +56,21 @@ namespace MathQuiz
             minusLeftLabel.Text = minuend.ToString();
             minusRightLabel.Text = subtrahend.ToString();
             difference.Value = 0;
+
+            // Fill in the multiplication problem.
+            multiplicand = randomizer.Next(2, 11);
+            multiplier = randomizer.Next(2, 11);
+            timesLeftLabel.Text = multiplicand.ToString();
+            timesRightLabel.Text = multiplier.ToString();
+            product.Value = 0;
+
+            // Fill in the division problem.
+            divisor = randomizer.Next(2, 11);
+            int temporaryQuotient = randomizer.Next(2, 11);
+            dividend = divisor * temporaryQuotient;
+            dividedLeftLabel.Text = dividend.ToString();
+            dividedRightLabel.Text = divisor.ToString();
+            quotient.Value = 0;
 
             // Start the timer.
             timeLeft = 30;
@@ -100,6 +119,8 @@ namespace MathQuiz
                 MessageBox.Show("You didn't finish in time.", "Sorry!");
                 sum.Value = addend1 + addend2;
                 difference.Value = minuend - subtrahend;
+                product.Value = multiplicand * multiplier;
+                quotient.Value = dividend / divisor;
                 startButton.Enabled = true;
             }
         }
@@ -107,7 +128,9 @@ namespace MathQuiz
         private bool CheckTheAnswer()
         {
             if ((addend1 + addend2 == sum.Value)
-                    && (minuend - subtrahend == difference.Value))
+                && (minuend - subtrahend == difference.Value)
+                && (multiplicand * multiplier == product.Value)
+                && (dividend / divisor == quotient.Value))
                 return true;
             else
                 return false;
