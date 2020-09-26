@@ -80,7 +80,8 @@ namespace MathQuiz
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            string fecha = DateTime.Today.ToString("dd MMMM yyyy");
+            date.Text = fecha;
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -109,6 +110,10 @@ namespace MathQuiz
                 // Time Left label.
                 timeLeft--;
                 timeLabel.Text = timeLeft + " seconds";
+                if (timeLeft <= 5)
+                {
+                    timeLabel.BackColor = Color.Red;
+                }
             }
             else
             {
