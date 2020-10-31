@@ -13,7 +13,7 @@
 <form>
     <p>
         <input type="text" asp-for="SearchString" />
-        <input type="submit" value="Search" />
+        <input class ="btn btn-outline-secondary" type="submit" value="Search" />
     </p>
 </form>
 <table class="table">
@@ -56,9 +56,9 @@
                 @Html.DisplayFor(modelItem => item.CreationDate)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                <a class="btn btn-outline-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>              
             </td>
         </tr>
 }
