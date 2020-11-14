@@ -42,6 +42,7 @@ html {
 }
 .bg-white {
     background-color: #a77e77 !important;
+    color:white;
 }
 body {
     /* Margin bottom by footer height */
@@ -51,6 +52,28 @@ body {
 table {
     width: -webkit-fill-available;
 }
+#btnHome {
+    height: 300px;
+    width: 300px;
+}
+#titlesMenu {
+    margin-top: 120px;
+    font-size: x-large;
+}
+#btnGroupMenu {
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: #a77e77;
+    border-color: white;
+}
+
+    .btn-secondary:hover {
+        color: #fff;
+        background-color: #9a947c;
+        border-color: #9a947c;
+    }
 .footer {
   position: absolute;
   bottom: 0;
