@@ -34,6 +34,5 @@ namespace MvcMovie.Models
         [StringLength(5)]
         [Required]
         public string Rating { get; set; }
-        public IFormFile Photo { get; set; }
     }
 }
