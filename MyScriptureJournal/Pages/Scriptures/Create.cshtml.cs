@@ -34,7 +34,6 @@ namespace MyScriptureJournal.Pages.Scriptures
             }
             _context.Scripture.Add(Scripture);
             await _context.SaveChangesAsync();
-
             return RedirectToPage("./Index");
         }
     }
